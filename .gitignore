@@ -66,6 +66,10 @@ yarn-error.log
 # testing
 /coverage
 
+# Generated build and capture files
+/*.apk
+/*.png
+
 # Yarn
 .yarn/*
 !.yarn/patches
