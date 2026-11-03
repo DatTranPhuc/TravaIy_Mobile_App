@@ -3,54 +3,52 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Colors } from '../theme/colors';
 
-// Screens Phase 1
-import { WelcomeScreen } from '../screens/WelcomeScreen';
-import { HomeScreen } from '../screens/HomeScreen';
-import { ExploreScreen } from '../screens/ExploreScreen';
-import { TripsScreen } from '../screens/TripsScreen';
-import { ProfileScreen } from '../screens/ProfileScreen';
-import { WizardDestinationScreen } from '../screens/WizardDestinationScreen';
-import { WizardDatesScreen } from '../screens/WizardDatesScreen';
-import { WizardCompanionsScreen } from '../screens/WizardCompanionsScreen';
-import { WizardBudgetScreen } from '../screens/WizardBudgetScreen';
-import { WizardPreferencesScreen } from '../screens/WizardPreferencesScreen';
-import { AIGeneratingScreen } from '../screens/AIGeneratingScreen';
-import { TripOverviewScreen } from '../screens/TripOverviewScreen';
-
-// Screens Phase 2 & Complete Flows
-import { StaysScreen } from '../screens/StaysScreen';
-import { StayDetailScreen } from '../screens/StayDetailScreen';
-import { TripExpensesScreen } from '../screens/TripExpensesScreen';
-import { AddExpenseScreen } from '../screens/AddExpenseScreen';
-import { GroupSpaceScreen } from '../screens/GroupSpaceScreen';
-import { GroupChatScreen } from '../screens/GroupChatScreen';
-import { TravelWalletScreen } from '../screens/TravelWalletScreen';
-import { AddTravelDocumentScreen } from '../screens/AddTravelDocumentScreen';
-import { JournalAlbumScreen } from '../screens/JournalAlbumScreen';
-
-// Screens Full Prototype Port
-import { TodayScheduleScreen } from '../screens/TodayScheduleScreen';
-import { DayItineraryScreen } from '../screens/DayItineraryScreen';
-import { ItineraryEditScreen } from '../screens/ItineraryEditScreen';
-import { TripPreparationScreen } from '../screens/TripPreparationScreen';
-import { PackingListScreen } from '../screens/PackingListScreen';
-import { AdaptiveScheduleScreen } from '../screens/AdaptiveScheduleScreen';
-import { AIItineraryProposalScreen } from '../screens/AIItineraryProposalScreen';
-import { PlaceDetailScreen } from '../screens/PlaceDetailScreen';
-import { MapViewScreen } from '../screens/MapViewScreen';
-import { SearchFilterScreen } from '../screens/SearchFilterScreen';
-import { WishlistScreen } from '../screens/WishlistScreen';
-import { CommunityFeedScreen } from '../screens/CommunityFeedScreen';
-import { CreatePostScreen } from '../screens/CreatePostScreen';
-import { GroupPollScreen } from '../screens/GroupPollScreen';
-import { GroupLocationScreen } from '../screens/GroupLocationScreen';
-import { GroupExpenseSplitScreen } from '../screens/GroupExpenseSplitScreen';
-import { PhotoboothScreen } from '../screens/PhotoboothScreen';
-import { CreateRecapScreen } from '../screens/CreateRecapScreen';
-import { TripRecapFinalScreen } from '../screens/TripRecapFinalScreen';
-import { TravelDocumentDetailScreen } from '../screens/TravelDocumentDetailScreen';
-import { TripSubscriptionScreen } from '../screens/TripSubscriptionScreen';
-import { OnboardingScreen } from '../screens/OnboardingScreen';
+// Screens Exported from Feature Modules
+import {
+  WelcomeScreen,
+  OnboardingScreen,
+  HomeScreen,
+  ExploreScreen,
+  TripsScreen,
+  ProfileScreen,
+  WizardDestinationScreen,
+  WizardDatesScreen,
+  WizardCompanionsScreen,
+  WizardBudgetScreen,
+  WizardPreferencesScreen,
+  AIGeneratingScreen,
+  AIItineraryProposalScreen,
+  TripOverviewScreen,
+  TodayScheduleScreen,
+  DayItineraryScreen,
+  ItineraryEditScreen,
+  AdaptiveScheduleScreen,
+  TripPreparationScreen,
+  PackingListScreen,
+  SearchFilterScreen,
+  PlaceDetailScreen,
+  MapViewScreen,
+  WishlistScreen,
+  StaysScreen,
+  StayDetailScreen,
+  GroupSpaceScreen,
+  GroupChatScreen,
+  GroupPollScreen,
+  GroupLocationScreen,
+  GroupExpenseSplitScreen,
+  TripExpensesScreen,
+  AddExpenseScreen,
+  CommunityFeedScreen,
+  CreatePostScreen,
+  JournalAlbumScreen,
+  PhotoboothScreen,
+  CreateRecapScreen,
+  TripRecapFinalScreen,
+  TravelWalletScreen,
+  AddTravelDocumentScreen,
+  TravelDocumentDetailScreen,
+  TripSubscriptionScreen,
+} from '../screens';
 
 import { Home, Compass, MapPin, User } from 'lucide-react-native';
 
