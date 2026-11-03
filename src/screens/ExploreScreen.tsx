@@ -76,14 +76,18 @@ export const ExploreScreen: React.FC<{ navigation: any }> = ({ navigation }) => 
         <View style={styles.headerActions}>
           <TouchableOpacity
             style={styles.mapPill}
-            onPress={() => navigation.navigate('Stays')}
+            onPress={() => navigation.navigate('MapView')}
             activeOpacity={0.8}
           >
             <Map size={15} color="#0A1680" />
-            <Text style={styles.mapPillText}>Chỗ ở</Text>
+            <Text style={styles.mapPillText}>Bản đồ</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.bookmarkBtn} activeOpacity={0.8}>
+          <TouchableOpacity
+            style={styles.bookmarkBtn}
+            onPress={() => navigation.navigate('Wishlist')}
+            activeOpacity={0.8}
+          >
             <Bookmark size={17} color="#0A1680" />
           </TouchableOpacity>
         </View>
@@ -104,7 +108,7 @@ export const ExploreScreen: React.FC<{ navigation: any }> = ({ navigation }) => 
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.searchIconBtn}
-          onPress={() => navigation.navigate('Stays')}
+          onPress={() => navigation.navigate('SearchFilter')}
         >
           <SlidersHorizontal size={17} color="#0A1680" />
         </TouchableOpacity>

@@ -82,7 +82,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ navigation }) => {
           <View style={styles.actions}>
             <TouchableOpacity
               style={styles.primaryBtn}
-              onPress={() => navigation.replace('MainTabs')}
+              onPress={() => navigation.navigate('Onboarding')}
               activeOpacity={0.88}
             >
               <Text style={styles.primaryBtnText}>Lên kế hoạch</Text>

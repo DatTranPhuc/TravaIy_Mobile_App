@@ -17,7 +17,7 @@ import { WizardPreferencesScreen } from '../screens/WizardPreferencesScreen';
 import { AIGeneratingScreen } from '../screens/AIGeneratingScreen';
 import { TripOverviewScreen } from '../screens/TripOverviewScreen';
 
-// Screens Phase 2
+// Screens Phase 2 & Complete Flows
 import { StaysScreen } from '../screens/StaysScreen';
 import { StayDetailScreen } from '../screens/StayDetailScreen';
 import { TripExpensesScreen } from '../screens/TripExpensesScreen';
@@ -27,6 +27,30 @@ import { GroupChatScreen } from '../screens/GroupChatScreen';
 import { TravelWalletScreen } from '../screens/TravelWalletScreen';
 import { AddTravelDocumentScreen } from '../screens/AddTravelDocumentScreen';
 import { JournalAlbumScreen } from '../screens/JournalAlbumScreen';
+
+// Screens Full Prototype Port
+import { TodayScheduleScreen } from '../screens/TodayScheduleScreen';
+import { DayItineraryScreen } from '../screens/DayItineraryScreen';
+import { ItineraryEditScreen } from '../screens/ItineraryEditScreen';
+import { TripPreparationScreen } from '../screens/TripPreparationScreen';
+import { PackingListScreen } from '../screens/PackingListScreen';
+import { AdaptiveScheduleScreen } from '../screens/AdaptiveScheduleScreen';
+import { AIItineraryProposalScreen } from '../screens/AIItineraryProposalScreen';
+import { PlaceDetailScreen } from '../screens/PlaceDetailScreen';
+import { MapViewScreen } from '../screens/MapViewScreen';
+import { SearchFilterScreen } from '../screens/SearchFilterScreen';
+import { WishlistScreen } from '../screens/WishlistScreen';
+import { CommunityFeedScreen } from '../screens/CommunityFeedScreen';
+import { CreatePostScreen } from '../screens/CreatePostScreen';
+import { GroupPollScreen } from '../screens/GroupPollScreen';
+import { GroupLocationScreen } from '../screens/GroupLocationScreen';
+import { GroupExpenseSplitScreen } from '../screens/GroupExpenseSplitScreen';
+import { PhotoboothScreen } from '../screens/PhotoboothScreen';
+import { CreateRecapScreen } from '../screens/CreateRecapScreen';
+import { TripRecapFinalScreen } from '../screens/TripRecapFinalScreen';
+import { TravelDocumentDetailScreen } from '../screens/TravelDocumentDetailScreen';
+import { TripSubscriptionScreen } from '../screens/TripSubscriptionScreen';
+import { OnboardingScreen } from '../screens/OnboardingScreen';
 
 import { Home, Compass, MapPin, User } from 'lucide-react-native';
 
@@ -43,8 +67,8 @@ function MainTabs() {
         tabBarStyle: {
           backgroundColor: Colors.card,
           borderTopColor: Colors.border,
-          height: 60,
-          paddingBottom: 8,
+          height: 68,
+          paddingBottom: 14,
           paddingTop: 6,
         },
         tabBarLabelStyle: {
@@ -98,27 +122,61 @@ export function RootNavigator() {
         animation: 'slide_from_right',
       }}
     >
-      {/* Phase 1 */}
+      {/* Onboarding & Welcome */}
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen name="Onboarding" component={OnboardingScreen} />
       <Stack.Screen name="MainTabs" component={MainTabs} />
+
+      {/* Trip Wizard Flow */}
       <Stack.Screen name="WizardDestination" component={WizardDestinationScreen} />
       <Stack.Screen name="WizardDates" component={WizardDatesScreen} />
       <Stack.Screen name="WizardCompanions" component={WizardCompanionsScreen} />
       <Stack.Screen name="WizardBudget" component={WizardBudgetScreen} />
       <Stack.Screen name="WizardPreferences" component={WizardPreferencesScreen} />
       <Stack.Screen name="AIGenerating" component={AIGeneratingScreen} />
+      <Stack.Screen name="AIItineraryProposal" component={AIItineraryProposalScreen} />
       <Stack.Screen name="TripOverview" component={TripOverviewScreen} />
 
-      {/* Phase 2 */}
+      {/* Daily Schedule & Details */}
+      <Stack.Screen name="TodaySchedule" component={TodayScheduleScreen} />
+      <Stack.Screen name="DayItinerary" component={DayItineraryScreen} />
+      <Stack.Screen name="ItineraryEdit" component={ItineraryEditScreen} />
+      <Stack.Screen name="TripPreparation" component={TripPreparationScreen} />
+      <Stack.Screen name="PackingList" component={PackingListScreen} />
+      <Stack.Screen name="AdaptiveSchedule" component={AdaptiveScheduleScreen} />
+
+      {/* Explore, Places, Search & Wishlist */}
+      <Stack.Screen name="PlaceDetail" component={PlaceDetailScreen} />
+      <Stack.Screen name="MapView" component={MapViewScreen} />
+      <Stack.Screen name="SearchFilter" component={SearchFilterScreen} />
+      <Stack.Screen name="Wishlist" component={WishlistScreen} />
       <Stack.Screen name="Stays" component={StaysScreen} />
       <Stack.Screen name="StayDetail" component={StayDetailScreen} />
-      <Stack.Screen name="TripExpenses" component={TripExpensesScreen} />
-      <Stack.Screen name="AddExpense" component={AddExpenseScreen} />
+
+      {/* Group Space & Social */}
       <Stack.Screen name="GroupSpace" component={GroupSpaceScreen} />
       <Stack.Screen name="GroupChat" component={GroupChatScreen} />
+      <Stack.Screen name="GroupPoll" component={GroupPollScreen} />
+      <Stack.Screen name="GroupLocation" component={GroupLocationScreen} />
+      <Stack.Screen name="GroupExpenseSplit" component={GroupExpenseSplitScreen} />
+      <Stack.Screen name="TripExpenses" component={TripExpensesScreen} />
+      <Stack.Screen name="AddExpense" component={AddExpenseScreen} />
+
+      {/* Community & Post Creation */}
+      <Stack.Screen name="CommunityFeed" component={CommunityFeedScreen} />
+      <Stack.Screen name="CreatePost" component={CreatePostScreen} />
+
+      {/* Photos, Recaps & Photobooth */}
+      <Stack.Screen name="Photobooth" component={PhotoboothScreen} />
+      <Stack.Screen name="JournalAlbum" component={JournalAlbumScreen} />
+      <Stack.Screen name="CreateRecap" component={CreateRecapScreen} />
+      <Stack.Screen name="TripRecapFinal" component={TripRecapFinalScreen} />
+
+      {/* Wallet, Documents & Subscription */}
       <Stack.Screen name="TravelWallet" component={TravelWalletScreen} />
       <Stack.Screen name="AddTravelDocument" component={AddTravelDocumentScreen} />
-      <Stack.Screen name="JournalAlbum" component={JournalAlbumScreen} />
+      <Stack.Screen name="TravelDocumentDetail" component={TravelDocumentDetailScreen} />
+      <Stack.Screen name="TripSubscription" component={TripSubscriptionScreen} />
     </Stack.Navigator>
   );
 }

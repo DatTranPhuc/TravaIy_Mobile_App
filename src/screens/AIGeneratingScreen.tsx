@@ -36,7 +36,7 @@ export const AIGeneratingScreen: React.FC<AIGeneratingScreenProps> = ({ navigati
     const timer4 = setTimeout(() => {
       const newPlan = buildWizardPlan(wizardData);
       setPlan(newPlan);
-      navigation.replace('TripOverview');
+      navigation.replace('AIItineraryProposal');
     }, 4600);
 
     return () => {

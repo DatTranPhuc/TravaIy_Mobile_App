@@ -114,14 +114,40 @@ export const GroupSpaceScreen: React.FC<{ navigation: any }> = ({ navigation }) 
 
           <TouchableOpacity
             style={styles.toolItem}
-            onPress={() => navigation.navigate('TripExpenses')}
+            onPress={() => navigation.navigate('GroupExpenseSplit')}
             activeOpacity={0.8}
           >
             <View style={[styles.toolIconBox, { backgroundColor: '#E0F2FE' }]}>
               <Wallet size={22} color="#0284C7" />
             </View>
-            <Text style={styles.toolTitle}>Chi tiêu</Text>
-            <Text style={styles.toolSub}>Chia tiền nhóm</Text>
+            <Text style={styles.toolTitle}>Chia tiền nhóm</Text>
+            <Text style={styles.toolSub}>Quỹ chung & công nợ</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.toolsGrid}>
+          <TouchableOpacity
+            style={styles.toolItem}
+            onPress={() => navigation.navigate('GroupPoll')}
+            activeOpacity={0.8}
+          >
+            <View style={[styles.toolIconBox, { backgroundColor: '#FEF3C7' }]}>
+              <Vote size={22} color="#D97706" />
+            </View>
+            <Text style={styles.toolTitle}>Bình chọn</Text>
+            <Text style={styles.toolSub}>Chốt điểm đi chơi</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.toolItem}
+            onPress={() => navigation.navigate('GroupLocation')}
+            activeOpacity={0.8}
+          >
+            <View style={[styles.toolIconBox, { backgroundColor: '#DCFCE7' }]}>
+              <MapPin size={22} color="#16A34A" />
+            </View>
+            <Text style={styles.toolTitle}>Vị trí cả đoàn</Text>
+            <Text style={styles.toolSub}>Bản đồ trực tiếp</Text>
           </TouchableOpacity>
         </View>
 

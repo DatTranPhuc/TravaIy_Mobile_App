@@ -26,6 +26,8 @@ import {
   Building,
   CreditCard,
   MessageCircle,
+  ShieldCheck,
+  Compass,
 } from 'lucide-react-native';
 
 interface TripOverviewScreenProps {
@@ -82,24 +84,31 @@ export const TripOverviewScreen: React.FC<TripOverviewScreenProps> = ({ navigati
         <View style={styles.toolsRow}>
           <TouchableOpacity
             style={[styles.toolCard, { backgroundColor: '#EDE9FE' }]}
-            onPress={() => navigation.navigate('GroupSpace')}
+            onPress={() => navigation.navigate('TodaySchedule')}
           >
-            <Users size={22} color="#7C3AED" />
-            <Text style={[styles.toolText, { color: '#7C3AED' }]}>Nhóm</Text>
+            <Clock size={22} color="#7C3AED" />
+            <Text style={[styles.toolText, { color: '#7C3AED' }]}>Hôm nay</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.toolCard, { backgroundColor: '#EFF6FF' }]}
-            onPress={() => navigation.navigate('TripExpenses')}
+            onPress={() => navigation.navigate('DayItinerary', { dayNumber: selectedDay })}
           >
-            <Wallet size={22} color="#2563EB" />
-            <Text style={[styles.toolText, { color: '#2563EB' }]}>Chi tiêu</Text>
+            <Compass size={22} color="#2563EB" />
+            <Text style={[styles.toolText, { color: '#2563EB' }]}>Lịch trình</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.toolCard, { backgroundColor: '#ECFDF5' }]}
+            onPress={() => navigation.navigate('TripPreparation')}
+          >
+            <ShieldCheck size={22} color="#059669" />
+            <Text style={[styles.toolText, { color: '#059669' }]}>Chuẩn bị</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.toolCard, { backgroundColor: '#FFF1F2' }]}
-            onPress={() => navigation.navigate('JournalAlbum')}
+            onPress={() => navigation.navigate('GroupSpace')}
           >
-            <Camera size={22} color="#E11D48" />
-            <Text style={[styles.toolText, { color: '#E11D48' }]}>Kho ảnh</Text>
+            <Users size={22} color="#E11D48" />
+            <Text style={[styles.toolText, { color: '#E11D48' }]}>Nhóm đi</Text>
           </TouchableOpacity>
         </View>
 
@@ -177,10 +186,17 @@ export const TripOverviewScreen: React.FC<TripOverviewScreenProps> = ({ navigati
         {/* Current Day Schedule List */}
         {currentDayData && (
           <View style={styles.scheduleContainer}>
-            <View style={styles.dayInfoBanner}>
-              <Text style={styles.dayInfoTitle}>{currentDayData.title}</Text>
-              <Text style={styles.dayInfoCost}>Dự kiến: {currentDayData.dayCost}</Text>
-            </View>
+            <TouchableOpacity
+              style={styles.dayInfoBanner}
+              onPress={() => navigation.navigate('DayItinerary', { dayNumber: selectedDay })}
+              activeOpacity={0.85}
+            >
+              <View style={{ flex: 1 }}>
+                <Text style={styles.dayInfoTitle}>{currentDayData.title}</Text>
+                <Text style={styles.dayInfoCost}>Dự kiến: {currentDayData.dayCost} · Xem chi tiết ›</Text>
+              </View>
+              <ChevronRight size={18} color={Colors.textSecondary} />
+            </TouchableOpacity>
 
             <View style={styles.timelineList}>
               {currentDayData.items.map((item, idx) => {
@@ -197,7 +213,11 @@ export const TripOverviewScreen: React.FC<TripOverviewScreenProps> = ({ navigati
                     </View>
 
                     {/* Activity Card */}
-                    <View style={styles.activityCard}>
+                    <TouchableOpacity
+                      style={styles.activityCard}
+                      onPress={() => navigation.navigate('DayItinerary', { dayNumber: selectedDay })}
+                      activeOpacity={0.85}
+                    >
                       {item.image && (
                         <Image source={resolveImageSource(item.image)} style={styles.activityThumb} />
                       )}
@@ -217,7 +237,7 @@ export const TripOverviewScreen: React.FC<TripOverviewScreenProps> = ({ navigati
                           <Text style={styles.costBadge}>{item.cost}</Text>
                         </View>
                       </View>
-                    </View>
+                    </TouchableOpacity>
                   </View>
                 );
               })}

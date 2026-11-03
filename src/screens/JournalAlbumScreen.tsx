@@ -140,21 +140,25 @@ export const JournalAlbumScreen: React.FC<{ navigation: any }> = ({ navigation }
         </View>
 
         {/* Hero Memory Card */}
-        <View style={styles.heroCard}>
+        <TouchableOpacity
+          style={styles.heroCard}
+          onPress={() => navigation.navigate('CreateRecap')}
+          activeOpacity={0.9}
+        >
           <Image source={LocalImages.beach} style={styles.heroCardImg} />
           <View style={styles.heroCardOverlay} />
           <View style={styles.heroCardBody}>
-            <Text style={styles.heroCardEyebrow}>KHOẢNH KHẮC TIÊU BIỂU</Text>
+            <Text style={styles.heroCardEyebrow}>KHOẢNH KHẮC TIÊU BIỂU · CHẠM ĐỂ TẠO RECAP VIDEO</Text>
             <Text style={styles.heroCardTitle}>Bình minh bên biển xanh</Text>
             <Text style={styles.heroCardDate}>17 Tháng 10, 2026 · Đà Nẵng</Text>
           </View>
-        </View>
+        </TouchableOpacity>
 
         {/* Grid Photos */}
         <View style={styles.gridHeaderRow}>
           <Text style={styles.gridHeading}>Tất cả ảnh ({photoList.length})</Text>
-          <TouchableOpacity onPress={handleTakePhoto}>
-            <Text style={styles.gridAction}>+ Thêm ảnh mới</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Photobooth')}>
+            <Text style={styles.gridAction}>+ Chụp Photobooth</Text>
           </TouchableOpacity>
         </View>
 

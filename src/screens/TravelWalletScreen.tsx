@@ -203,7 +203,7 @@ export const TravelWalletScreen: React.FC<{ navigation: any }> = ({ navigation }
                 <Text style={styles.timeText}>{doc.time}</Text>
                 <TouchableOpacity
                   style={styles.viewBtn}
-                  onPress={() => Alert.alert('Chi tiết giấy tờ', `${doc.title}\nMã số: ${doc.code}\n${doc.time}`)}
+                  onPress={() => navigation.navigate('TravelDocumentDetail', { docId: doc.id })}
                 >
                   <Eye size={15} color={Colors.primary} />
                   <Text style={styles.viewBtnText}>Xem chi tiết</Text>

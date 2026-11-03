@@ -65,7 +65,7 @@ export const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => 
           <View style={styles.statsRow}>
             <TouchableOpacity
               style={styles.statCol}
-              onPress={() => navigation.navigate('Trips')}
+              onPress={() => navigation.navigate('TripsTab')}
             >
               <Text style={styles.statNumber}>{trips.length || 1}</Text>
               <Text style={styles.statLabel}>Chuyến đi</Text>
@@ -73,17 +73,25 @@ export const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => 
 
             <View style={styles.statDivider} />
 
-            <View style={styles.statCol}>
+            <TouchableOpacity
+              style={styles.statCol}
+              onPress={() => navigation.navigate('Wishlist')}
+              activeOpacity={0.7}
+            >
               <Text style={styles.statNumber}>32</Text>
               <Text style={styles.statLabel}>Đã lưu</Text>
-            </View>
+            </TouchableOpacity>
 
             <View style={styles.statDivider} />
 
-            <View style={styles.statCol}>
+            <TouchableOpacity
+              style={styles.statCol}
+              onPress={() => navigation.navigate('Wishlist')}
+              activeOpacity={0.7}
+            >
               <Text style={styles.statNumber}>4</Text>
               <Text style={styles.statLabel}>Bộ sưu tập</Text>
-            </View>
+            </TouchableOpacity>
 
             <View style={styles.statDivider} />
 
@@ -101,7 +109,7 @@ export const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => 
               <Compass size={18} color="#0A1680" />
               <Text style={styles.dnaTitle}>DNA Du lịch cá nhân</Text>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Onboarding')}>
               <Text style={styles.dnaEditBtn}>Chỉnh sửa</Text>
             </TouchableOpacity>
           </View>
@@ -133,7 +141,7 @@ export const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => 
         <View style={styles.sectionWrap}>
           <View style={styles.sectionTitleRow}>
             <Text style={styles.sectionTitle}>Những chuyến đã đi</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Trips')}>
+            <TouchableOpacity onPress={() => navigation.navigate('TripsTab')}>
               <Text style={styles.sectionLink}>Chuyến đi của tôi ›</Text>
             </TouchableOpacity>
           </View>
@@ -176,7 +184,11 @@ export const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => 
         </View>
 
         {/* Subscription Plan Card */}
-        <View style={styles.planCard}>
+        <TouchableOpacity
+          style={styles.planCard}
+          onPress={() => navigation.navigate('TripSubscription')}
+          activeOpacity={0.85}
+        >
           <View style={styles.planIconWrapper}>
             <Sparkles size={20} color="#0A1680" />
           </View>
@@ -187,13 +199,13 @@ export const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => 
             </Text>
           </View>
           <ChevronRight size={18} color="#94A3B8" />
-        </View>
+        </TouchableOpacity>
 
         {/* Settings Menu List */}
         <View style={styles.menuCard}>
           <TouchableOpacity
             style={styles.menuRow}
-            onPress={() => navigation.navigate('GroupSpace')}
+            onPress={() => navigation.navigate('CommunityFeed')}
             activeOpacity={0.7}
           >
             <View style={[styles.menuIconCircle, { backgroundColor: '#EFF3FF' }]}>
@@ -208,7 +220,7 @@ export const ProfileScreen: React.FC<{ navigation: any }> = ({ navigation }) => 
 
           <TouchableOpacity
             style={styles.menuRow}
-            onPress={() => navigation.navigate('Explore')}
+            onPress={() => navigation.navigate('Wishlist')}
             activeOpacity={0.7}
           >
             <View style={[styles.menuIconCircle, { backgroundColor: '#FFFBEB' }]}>

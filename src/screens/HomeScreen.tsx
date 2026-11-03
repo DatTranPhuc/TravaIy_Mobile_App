@@ -74,7 +74,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
         {/* Search Bar */}
         <TouchableOpacity
           style={styles.searchBar}
-          onPress={() => navigation.navigate('WizardDestination')}
+          onPress={() => navigation.navigate('SearchFilter')}
           activeOpacity={0.85}
         >
           <Search size={18} color="#64748B" />
@@ -91,23 +91,14 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
             style={styles.cinematicImage}
             resizeMode="cover"
           />
-          <Svg style={StyleSheet.absoluteFillObject} width="100%" height="100%">
-            <Defs>
-              <SvgLinearGradient id="heroGradient" x1="0" y1="1" x2="0" y2="0">
-                <Stop offset="0" stopColor="#071938" stopOpacity="0.92" />
-                <Stop offset="0.45" stopColor="#071938" stopOpacity="0.55" />
-                <Stop offset="0.75" stopColor="#071938" stopOpacity="0.08" />
-                <Stop offset="1" stopColor="#071938" stopOpacity="0" />
-              </SvgLinearGradient>
-            </Defs>
-            <Rect width="100%" height="100%" fill="url(#heroGradient)" />
-          </Svg>
+          <View style={styles.cinematicDarkGradientTop} />
+          <View style={styles.cinematicDarkGradientBottom} />
 
           <View style={styles.heroCaptionWrap}>
             <Text style={styles.heroCaption}>VIỆT NAM · ẢNH MINH HỌA</Text>
           </View>
 
-          <View style={styles.cinematicBody}>
+          <View style={styles.cinematicOverlay}>
             <Text style={styles.heroEyebrow}>CHUYẾN ĐI TIẾP THEO</Text>
             <Text style={styles.heroHeadline}>Khám phá{'\n'}Việt Nam.</Text>
             <Text style={styles.heroSub}>
@@ -213,7 +204,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
               <Text style={styles.sectionEyebrow}>THÊM MỘT LÝ DO ĐỂ ĐI</Text>
               <Text style={styles.sectionTitle}>Gợi ý điểm đến</Text>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('Explore')}>
+            <TouchableOpacity onPress={() => navigation.navigate('ExploreTab')}>
               <Text style={styles.seeAllText}>Xem thêm ➔</Text>
             </TouchableOpacity>
           </View>
@@ -251,9 +242,16 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
               <Users size={20} color="#0A1680" />
               <Text style={styles.sectionTitle}>Cộng đồng TravAIy</Text>
             </View>
+            <TouchableOpacity onPress={() => navigation.navigate('CommunityFeed')}>
+              <Text style={{ fontSize: 12, fontWeight: '700', color: '#0A1680' }}>Xem thêm ›</Text>
+            </TouchableOpacity>
           </View>
 
-          <View style={styles.communityCard}>
+          <TouchableOpacity
+            style={styles.communityCard}
+            onPress={() => navigation.navigate('CommunityFeed')}
+            activeOpacity={0.9}
+          >
             <View style={styles.commAuthorRow}>
               <View style={styles.commAvatar}>
                 <Text style={styles.commAvatarText}>LC</Text>
@@ -296,7 +294,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 
               <Text style={styles.sampleBadge}>Bài mẫu</Text>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -313,7 +311,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingTop: 8,
+    paddingTop: 38,
     paddingBottom: 14,
     backgroundColor: '#FFFFFF',
     borderBottomWidth: 1,
@@ -388,11 +386,10 @@ const styles = StyleSheet.create({
   cinematicCard: {
     borderRadius: 26,
     overflow: 'hidden',
-    height: 315,
+    height: 360,
     position: 'relative',
-    justifyContent: 'flex-end',
-    padding: 20,
     backgroundColor: '#071938',
+    justifyContent: 'flex-end',
   },
   cinematicImage: {
     position: 'absolute',
@@ -402,6 +399,26 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: '100%',
     height: '100%',
+  },
+  cinematicDarkGradientTop: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: '72%',
+    backgroundColor: 'rgba(7, 25, 56, 0.45)',
+  },
+  cinematicDarkGradientBottom: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: '52%',
+    backgroundColor: 'rgba(7, 25, 56, 0.65)',
+  },
+  cinematicOverlay: {
+    padding: 20,
+    zIndex: 2,
   },
   heroCaptionWrap: {
     position: 'absolute',
@@ -419,10 +436,6 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: '#FBEDB0',
     letterSpacing: 1.2,
-  },
-  cinematicBody: {
-    zIndex: 2,
-    marginTop: 'auto',
   },
   heroEyebrow: {
     fontSize: 10,
