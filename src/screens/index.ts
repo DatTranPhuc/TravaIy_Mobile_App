@@ -1,6 +1,9 @@
 // Authentication & Onboarding
 export * from './auth/WelcomeScreen';
 export * from './auth/OnboardingScreen';
+export * from './auth/LoginScreen';
+export * from './auth/RegisterScreen';
+export * from './auth/ForgotPasswordScreen';
 
 // Main Tabs
 export * from './tabs/HomeScreen';

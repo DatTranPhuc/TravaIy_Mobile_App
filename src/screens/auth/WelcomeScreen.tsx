@@ -92,14 +92,14 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ navigation }) => {
             <View style={styles.loginRow}>
               <Text style={styles.loginPrompt}>Đã có tài khoản?</Text>
               <TouchableOpacity
-                onPress={() => navigation.replace('MainTabs')}
+                onPress={() => navigation.navigate('Login')}
                 activeOpacity={0.7}
               >
                 <Text style={styles.loginLink}>Đăng nhập</Text>
               </TouchableOpacity>
               <Text style={styles.dotSeparator}>•</Text>
               <TouchableOpacity
-                onPress={() => navigation.replace('MainTabs')}
+                onPress={() => navigation.navigate('Register')}
                 activeOpacity={0.7}
               >
                 <Text style={styles.signupLink}>Đăng ký</Text>

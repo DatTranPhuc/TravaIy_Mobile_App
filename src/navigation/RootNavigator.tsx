@@ -7,6 +7,9 @@ import { Colors } from '../theme/colors';
 import {
   WelcomeScreen,
   OnboardingScreen,
+  LoginScreen,
+  RegisterScreen,
+  ForgotPasswordScreen,
   HomeScreen,
   ExploreScreen,
   TripsScreen,
@@ -120,8 +123,11 @@ export function RootNavigator() {
         animation: 'slide_from_right',
       }}
     >
-      {/* Onboarding & Welcome */}
+      {/* Onboarding, Auth & Welcome */}
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
       <Stack.Screen name="Onboarding" component={OnboardingScreen} />
       <Stack.Screen name="MainTabs" component={MainTabs} />
 
